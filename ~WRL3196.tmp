@@ -150,39 +150,7 @@ Class variables are those that are declared outside a function. We can declare a
 uint storedData;
 
 
-We can declare types of functions, in this case we have what is called setter, there we can implement setters and getter in Solidity. The word function defines a function followed by the name, inside the parenthesis we define the types and variables it takes in as parameters and finally we define the access modifier, in this case is declared as public. Inside our set function we have a variable set to the value of X which is the parameter we received.
 
-
-function set(uint x) public {
-        storedData = x;
-    }
-
-The last part of the code is very similar to the one above, except for a view and a variable being returned. The view word means that the function will not alter the storage state in any way. In previous versions of Solidity, the word “constant” was used instead. The word pure could also be used and it would indicate that the function could not even read that storage state it’s way more restrictive.
-
-
-    function get() public view returns (uint) {
-        return storedData;
-    }
-}
-
-As it was mention before the syntax is very similar to what we know today as JavaScript and Python, if you have used any of these languages or another OOP language it should look very familiar to you.
-
-
-
-Smart Contract Compilation and Deployment
-
-Now that we have everything set up it’s time to compile and deploy. For this example, we are going to program a simple contract printing out a string “Hello World”. To do this we are going to follow the next steps:
-
-1. Open the directory where we set up the environment (C:\Blockchain\Truffle_Env) where we executed truffle init.
-2. Once in this directory we are going to place our smart contract inside the “contracts” folder.
-3. This project has the contract already added to this folder. All you need to do is compile and deploy.
-4. To compile open up a command-line and set the position where we have our environment and type the following command:
-* truffle compile
-The output should be something like:
-
-C:\Blockchain\Truffle_Env>truffle compile
-Compiling .\contracts\Greeter.sol...
-Writing artifacts to .\build\contracts
 
 
 
