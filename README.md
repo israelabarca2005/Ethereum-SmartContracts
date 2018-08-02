@@ -175,14 +175,81 @@ Now that we have everything set up it’s time to compile and deploy. For this exa
 
 1. Open the directory where we set up the environment (C:\Blockchain\Truffle_Env) where we executed truffle init.
 2. Once in this directory we are going to place our smart contract inside the “contracts” folder.
-3. This project has the contract already added to this folder. All you need to do is compile and deploy.
-4. To compile open up a command-line and set the position where we have our environment and type the following command:
+3. This project which you can download has the structure and also contract already added to the “contracts” folder. All you need to do is compile and deploy.
+4. To compile open a command-line and set the position where we have our environment and type the following command:
 * truffle compile
 The output should be something like:
 
 C:\Blockchain\Truffle_Env>truffle compile
 Compiling .\contracts\Greeter.sol...
 Writing artifacts to .\build\contracts
+
+
+You may encounter compilation problems, work around them. The most common can be a compilation error or warning on the syntax. Just make sure you are using the right version specified on your contract. For example, if you are using the word function to declare a constructor, when you use a recent solidity version the correct way to do it is to just place a method inside the contract with the word “constructor” instead of “function”.
+
+
+Before
+
+
+     function nameofcontract() { owner = msg.sender; }
+
+
+After
+
+	constructor(bytes32 _name) public {}
+
+
+So, just watch out on what version you are compiling on.
+
+
+The last line on the output from our compiling command, is telling it wrote something on that directory, which happens to be our compiled contracts. Congrats, you have compiled your contract!
+
+The compiled contracts are in the folder .\build\contracts, we are not going to touch on that on this time, that will be for another time. All we must know that this directory is where our contracts will be put in after being compiled therefore, a lot of information can be bound here. If your contract It’s inside this directory it means you are in the right path.
+
+ It’s time to get our contract deployed so let’s get on that. So, what do we have to do to get it on our simulated blockchain, can someone guess? Well, the first thing is obviously to get our blockchain up and running. To do that, we are going to type the following command on a new command-line:
+
+ganache-cli
+
+You should get 10 accounts about 100eth each and its respective private keys. At this point, we assume you are familiar with the concepts of accounts, private keys, ether, wallets, etc. But what about Gas Price and Gas Limit. As we know, to be able to write into the Ethereum blockchain we must pay a transaction fee, this fee is what we call Gas which is a unit of measure for computational power. The gas price is how much eth we are willing to pay for each gas unit. The gas limit is how much gas we are willing to spend for a specific transaction.  
+
+Now that we know the very basics of gas and how we can use it to get our transactions into the blockchain, let’s see this in real life. After executing the previous command our client should be up and running on localhost port 8545. Ganache automatically will set our Gas Price and Gas Limit. When deploying to a real net set these values wisely and remember that if you don´t give enough gas to a transaction, it can end up not executing correctly meaning it will be drop along the way. With that said, we should have at least two command-line windows open. The first is where our environment is located and the second is our ganache client running on port 8545.
+
+We are ready to deploy our contract into our local blockchain, we are going to do this with an API from JavaScript named Web3. This API will let us interact with our environment. To do this, run the following command in your root directory from our environment. 
+
+
+C:\Blockchain\Truffle_Env>truffle console --network ganache
+
+
+This command should provide a console. We are now inside and can interact with the blockchain. Notice, in the other command-line windows we should get some output of what we are doing in our blockchain. To deploy our contract we need two things:
+
+1. An Account
+2. Gas (Ether)
+
+Ganache already provided us with the two. Type the command in the truffle command-line:
+
+
+truffle(ganache)> web3.personal.listAccounts
+
+
+This command will give us a list of Addresses available, in the main net or test net we will have to set our account to be able to deploy the contract. Ganache will do this automatically for us. So finally, lets deploy the contract by typing the following commands on the truffle command-line:
+
+
+truffle(ganache)> web3.eth.accounts[0]
+
+This command shows the owner of the contract, meaning it will use this account to deploy. Now lets type the following command:
+
+
+truffle(ganache)> Greeter.new("Hello World From Ganache!")
+
+
+This command will put our contract up in the blockchain, if you open up the contract Greeter.sol, you will notice that this contract inherits from Mortal which sets the owner of the contract in the constructor and also receives a string value in the constructor of the Greeter contract.
+There should be a lot of information displayed after executing the command, lets focus on the most important ones. 
+
+1. Transaction Hash
+2. Address
+3. From
+
+ The transaction hash is the resulting hash from the transaction details we performed. The address is where our contract has been deployed, so in order to call our smart contract we have to know the address where its located. The From is going to tell who deployed the contract, basically is indicating which account is the owner of the contract that was deployed.
 
 
 
