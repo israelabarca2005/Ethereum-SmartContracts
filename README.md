@@ -1,4 +1,4 @@
-## Smart Contract Course
+# Smart Contract Course
 
 
 This mini-course will touch the bases on Smart Contracts. We are going to create a smart contract using Solidity, set up a local environment to deploy and execute the smart contract’s functionality. We will work with Truffle to set up the environment and Ganche to simulate a local blockchain where the contract will be deployed. The following topics will be covered:
@@ -13,7 +13,7 @@ This mini-course will touch the bases on Smart Contracts. We are going to create
 Note: Windows 10 is the OS we are going to use.
 
 
-# Installing NodeJS
+## Installing NodeJS
 
 Download NodeJS according to the OS you are using, in this case the Windows Installer. 
 
@@ -32,7 +32,7 @@ Type the following command on a windows command line:
 The output should return the version installed in your computer. If the version is not shown in the command-line windows, then the installation went wrong. Go back and reinstall.
 
 
-# Setting up Truffle and Ganache
+## Setting up Truffle and Ganache
 
 Now that we have installed NodeJS we are going to install Truffle and Ganache.
 Type the following command on a windows command-line:
@@ -62,7 +62,7 @@ If you want to try out the GUI version download here:
 	https://github.com/trufflesuite/ganache/releases
 
 
-# Truffle Environment overview and settings
+## Truffle Environment overview and settings
 
 Up to this point we have done all the installations needed on our computer to compile and deploy our smart contract. Now we are going initialize our truffle environment where our smart contract will be placed.
 
@@ -94,7 +94,7 @@ The following directories and files were created:
 
 	truffle: This is the truffle configuration file.
 
-	truffle-config: This is also the truffle configuration file however, you may encounter problems when executing a truffle 				command since windows first tries to find executable files.
+	truffle-config: This is also the truffle configuration file however, you may encounter problems when executing a truffle 	command since windows first tries to find executable files.
 
 One way to solve this is to use this configuration file instead or change truffle.cmd in our installation folder to truff.cmd, if you take the second approach the commands will change to truff not truffle. In our case we are just going to use this configuration file and delete truffle.js.
 
@@ -116,7 +116,7 @@ As you can see we have set up our file pointing to our Ethereum Client Ganache w
 Our environment and settings are now ready. It’s time to learn about solidity and code our first smart contract.
 
 
-# Solidity Principles
+## Solidity Principles
 
 We are going to cover the basics of Solidity, for further research please visit the documentation available at:
 
@@ -171,7 +171,7 @@ The last part of the code is very similar to the one above, except for a view an
 As it was mention before the syntax is very similar to what we know today as JavaScript and Python, if you have used any of these languages or another OOP language it should look very familiar to you.
 
 
-# Smart Contract Compilation and Deployment
+## Smart Contract Compilation and Deployment
 
 Now that we have everything set up it’s time to compile and deploy. For this example, we are going to code a simple contract printing out a string “Hello World”. To do this we are going to follow the next steps:
 
@@ -248,7 +248,7 @@ There should be a lot of information displayed after executing the command, lets
 The transaction hash is the resulting hash from the transaction done when we deployed the contract. The address is where our contract has been deployed, therefore to execute the smart contract we must know the address where it is located. The from is the information of the account who deployed the contract, basically indicates the owner of the contract.
 
 
-# Interacting with Ethereum Network Via Web3 Api
+## Interacting with Ethereum Network Via Web3 Api
 
 As you saw earlier we were able get some information using the Api web3. This API is a set of libraries exposing different modules which allow you to interact with an Ethereum node locally or remotely using HTTP or IPC connection.
 
@@ -272,6 +272,6 @@ You can do some interesting stuff with web3 api, we are not going to go too much
 	https://web3js.readthedocs.io/en/1.0/
 
 
-# Conclusion
+## Conclusion
 
 We were able to set up an environment and run a local blockchain through Truffle and Ganache. We also went over the basics of Solidity reviewing a smart contract anatomy, we compiled and deployed a contract on our Ethereum Ganache client node. With the Web3 Api we interacted with the blockchain, using commands like truffle console we also consumed the contract we deployed and executed a public method. As you can see it’s quite easy to implement a smart contract and test it with these tools available. Instead of having to synchronize a full node with a test net or a main net this can be a quick way to set yourself up and experiment with the blockchain ecosystem before going to the real deal.
