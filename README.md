@@ -3,7 +3,7 @@
 Smart Contract Course
 
 
-This project will touch the bases on Smart Contracts. We are going to create a smart contract using Solidity, set up a local environment to deploy and execute the smart contract’s functionality. We will work with Truffle to set up the environment and Ganche to simulate a local blockchain where the contract will be deployed. The following topics will be covered:
+This mini-course will touch the bases on Smart Contracts. We are going to create a smart contract using Solidity, set up a local environment to deploy and execute the smart contractâ€™s functionality. We will work with Truffle to set up the environment and Ganche to simulate a local blockchain where the contract will be deployed. The following topics will be covered:
 
 1. Installation of NodeJS
 2. Setting up Truffle and Ganache
@@ -25,7 +25,7 @@ Once nodeJS is downloaded we can verify the version installed along with NPM.
 
 Type the following command on a windows command line:
 
->node –-version
+>node â€“-version
 	v8.9.0
 
 >npm --version
@@ -56,7 +56,7 @@ C:\Users\User Name\AppData\Roaming\npm>Truffle version
 
 We now see Truffle version and additionally we are shown solidity compiler version as well, it was also installed along with Truffle.
 
-Now it’s time to install Ganache Client!
+Now itâ€™s time to install Ganache Client!
 
 We have the option to install the graphical version, but we are going to work with the command-line version formerly known as TestRPC.
 
@@ -72,23 +72,21 @@ If you want to try out the GUI version download here:
 https://github.com/trufflesuite/ganache/releases
 
 
-
 Truffle Environment overview and settings
 
 Up to this point we have done all the installations needed on our computer to compile and deploy our smart contract. Now we are going initialize our truffle environment where our smart contract will be placed.
 
-Before getting started we are going to back up for a sec. Let’s set up our environment variables so we can execute our commands from any directory. 
+Before getting started we are going to back up for a sec. Letâ€™s set up our environment variables so we can execute our commands from any directory. 
 
 Go to your environment variable options:
 
 > Click Environment Variable button
-> Under user variables select “Path” a new options window will pop-up
+> Under user variables select â€œPathâ€ a new options window will pop-up
 > Click add and place the path where truffle and ganache were installed, in our case: C:\Users\User Name\AppData\Roaming\npm
 
 Once this is done, we can now set up our truffle environment. Create a new directory where you want to set up your environment, in my case I created a directory as follows: 
 
 > C:\Blockchain\Truffle_Env
-
 
 
 In the command-line I will place myself inside this new directory.
@@ -128,7 +126,7 @@ module.exports = {
 
 As you can see we have set up our file pointing to our Ethereum Client Ganache which will listen on localhost (127.0.0.1) port 8545.
 
-Our environment and settings are now ready. It’s time to learn about solidity and code our first smart contract.
+Our environment and settings are now ready. Itâ€™s time to learn about solidity and code our first smart contract.
 
 
 Solidity Principles
@@ -169,35 +167,35 @@ In the next line the contract is declared. The word contract followed by the nam
 
 uint storedData;
 
-Class variables are those that are declared outside a function. We can declare a variable public or private. Private can’t directly query data, and public makes externally readable by users or contracts. The variable declared in this contract is an unsigned integer public by default.
+Class variables are those that are declared outside a function. We can declare a variable public or private. Private canâ€™t directly query data, and public makes externally readable by users or contracts. The variable declared in this contract is an unsigned integer public by default.
 
 function set(uint x) public {
         storedData = x;
     }
 
 
-We can declare functions, in this case we have what is called setter, we can implement setters and getter in Solidity. The word function defines a function followed by the name, inside the parenthesis we define the types and variables it takes in as parameters and finally we define the access modifier, in this case it’s declared as public. Inside our set function we have the variable storedData set to the value of X which is the parameter we received.
+We can declare functions, in this case we have what is called setter, we can implement setters and getter in Solidity. The word function defines a function followed by the name, inside the parenthesis we define the types and variables it takes in as parameters and finally we define the access modifier, in this case itâ€™s declared as public. Inside our set function we have the variable storedData set to the value of X which is the parameter we received.
 
     function get() public view returns (uint) {
         return storedData;
     }
 }
 
-The last part of the code is very similar to the one above, except for a view and a variable being returned. The view word means that the function will not alter the storage state in any way. In previous versions of Solidity, the word constant was used instead. The word pure could also be used and it would indicate that the function could not even read that storage state it’s way more restrictive.
+The last part of the code is very similar to the one above, except for a view and a variable being returned. The view word means that the function will not alter the storage state in any way. In previous versions of Solidity, the word constant was used instead. The word pure could also be used and it would indicate that the function could not even read that storage state itâ€™s way more restrictive.
 
 As it was mention before the syntax is very similar to what we know today as JavaScript and Python, if you have used any of these languages or another OOP language it should look very familiar to you.
 
 
 Smart Contract Compilation and Deployment
 
-Now that we have everything set up it’s time to compile and deploy. For this example, we are going to code a simple contract printing out a string “Hello World”. To do this we are going to follow the next steps:
+Now that we have everything set up itâ€™s time to compile and deploy. For this example, we are going to code a simple contract printing out a string â€œHello Worldâ€. To do this we are going to follow the next steps:
 
 1. Open the directory where we set up the environment
    (C:\Blockchain\Truffle_Env) we executed truffle init command earlier.
 
-2. Once in this directory we are going to place our smart contract inside the “contracts” folder.
+2. Once in this directory we are going to place our smart contract inside the â€œcontractsâ€ folder.
 
-3. This project which you can download here has the correct structure and the contract already added to the “contracts” folder. All you need to do is compile and deploy.
+3. This project which you can download here has the correct structure and the contract already added to the â€œcontractsâ€ folder. All you need to do is compile and deploy.
 
 4. To compile open a command-line and set the position where we have our environment and type the following command:
 
@@ -210,7 +208,7 @@ Compiling .\contracts\Migrations.sol...
 Writing artifacts to .\build\contracts
 
 
-You may encounter compilation problems, work around them. The most common can be a compilation error or warning on the syntax. Just make sure you are using the right version specified on your contract. For example, if you are using the word function to declare a constructor, when you use a recent solidity version the correct way to do it is to just place a method inside the contract with the word “constructor” instead of “function”.
+You may encounter compilation problems, work around them. The most common can be a compilation error or warning on the syntax. Just make sure you are using the right version specified on your contract. For example, if you are using the word function to declare a constructor, when you use a recent solidity version the correct way to do it is to just place a method inside the contract with the word â€œconstructorâ€ instead of â€œfunctionâ€.
 
 
 Before
@@ -232,15 +230,15 @@ The last line on the output from our compiling command, is telling it wrote some
 
 The compiled contracts are in the folder .\build\contracts, we are not going to touch on that this time, that will be for another time. All we must know is that this directory is where our contracts will be put in after being compiled therefore, a lot of information can be bound here. If your contract is inside this directory it means you are in the right path.
 
-It’s time to get our contract deployed so let’s get on that. Well, the first thing is obviously to get our blockchain up and running. To do that, we are going to type the following command on a new command-line:
+Itâ€™s time to get our contract deployed so letâ€™s get on that. Well, the first thing is obviously to get our blockchain up and running. To do that, we are going to type the following command on a new command-line:
 
 ganache-cli
 
 You should get 10 accounts about 100eth each and its respective private keys. At this point, we assume you are familiar with the concepts of accounts, private keys, ether, wallets, etc. But what about Gas Price and Gas Limit. As we know, to be able to write into the Ethereum blockchain we must pay a transaction fee, this fee is what we call Gas which is a unit of measure for computational power. The gas price is how much eth we are willing to pay for each gas unit. The gas limit is how much gas we are willing to spend for a specific transaction.  
 
-Now that we know the very basics of gas and how we can use it to get our transactions into the blockchain, let’s see this in real life. After executing the previous command our client should be up and running on localhost port 8545. Ganache automatically will set our Gas Price and Gas Limit. When deploying to a main net set these values wisely and remember that if you don´t give enough gas to a transaction, it can end up not executing correctly meaning it will be drop along the way. With that said, we should have at least two command-line windows open. The first is where our environment is located and the second is our ganache client running on port 8545.
+Now that we know the very basics of gas and how we can use it to get our transactions into the blockchain, letâ€™s see this in real life. After executing the previous command our client should be up and running on localhost port 8545. Ganache automatically will set our Gas Price and Gas Limit. When deploying to a main net set these values wisely and remember that if you donÂ´t give enough gas to a transaction, it can end up not executing correctly meaning it will be drop along the way. With that said, we should have at least two command-line windows open. The first is where our environment is located and the second is our ganache client running on port 8545.
 
-We are ready to deploy our contract into our local blockchain, Truffle will make it a bit easier since we don’t have to use Migrations where we would have to set up a few more things and run a different migration command. Instead, we are going to do this by interacting directly with our blockchain. To do this, run the following command in your environment directory:
+We are ready to deploy our contract into our local blockchain, Truffle will make it a bit easier since we donâ€™t have to use Migrations where we would have to set up a few more things and run a different migration command. Instead, we are going to do this by interacting directly with our blockchain. To do this, run the following command in your environment directory:
 
 C:\Blockchain\Truffle_Env>truffle console --network ganache
 
@@ -280,14 +278,13 @@ The transaction hash is the resulting hash from the transaction done when we dep
 
 
 
-
 Interacting with Ethereum Network Via Web3 Api
 
 As you saw earlier we were able get some information using the Api web3. This API is a set of libraries exposing different modules which allow you to interact with an Ethereum node locally or remotely using HTTP or IPC connection.
 
-While still on the console we can make use of the Api to interact with the blockchain, now let’s execute the function exposed by the contract we deployed, if you recall our contract Greeter has a function greet that returns a string, this string value was set to “Hello World From Ganache!” in the contract we deployed since the constructor set this value to the variable greeting.
+While still on the console we can make use of the Api to interact with the blockchain, now letâ€™s execute the function exposed by the contract we deployed, if you recall our contract Greeter has a function greet that returns a string, this string value was set to â€œHello World From Ganache!â€ in the contract we deployed since the constructor set this value to the variable greeting.
 
-Now let’s call the function greet and we can do this since we declared it public. Type the following command:
+Now letâ€™s call the function greet and we can do this since we declared it public. Type the following command:
 
 
 truffle(ganache)> Greeter.at("0x3699a1e9b9811d48c26d511a8e802a3f39fc4088").greet()
@@ -295,9 +292,9 @@ truffle(ganache)> Greeter.at("0x3699a1e9b9811d48c26d511a8e802a3f39fc4088").greet
 
 The address placed inside the at method is the address of the contract we deployed earlier, so make sure you change it with the address of your own contract. 
 
-Once you execute the command, you should see the message “Hello World from Ganache!” in the command-line.
+Once you execute the command, you should see the message â€œHello World from Ganache!â€ in the command-line.
 
-Now it’s time to experiment with web3, type the following command:
+Now itâ€™s time to experiment with web3, type the following command:
 
 truffle(ganache)>web3
 
@@ -310,4 +307,4 @@ https://web3js.readthedocs.io/en/1.0/
 
 Conclusion
 
-We were able to set up an environment and run a local blockchain through Truffle and Ganache. We also went over the basics of Solidity reviewing a smart contract anatomy, we compiled and deployed a contract on our Ethereum Ganache client node. With the Web3 Api we interacted with the blockchain, using commands like truffle console we also consumed the contract we deployed and executed a public method. As you can see it’s quite easy to implement a smart contract and test it with these tools available. Instead of having to synchronize a full node with a test net or a main net this can be a quick way to set yourself up and experiment with the blockchain ecosystem before going to the real deal.
+We were able to set up an environment and run a local blockchain through Truffle and Ganache. We also went over the basics of Solidity reviewing a smart contract anatomy, we compiled and deployed a contract on our Ethereum Ganache client node. With the Web3 Api we interacted with the blockchain, using commands like truffle console we also consumed the contract we deployed and executed a public method. As you can see itâ€™s quite easy to implement a smart contract and test it with these tools available. Instead of having to synchronize a full node with a test net or a main net this can be a quick way to set yourself up and experiment with the blockchain ecosystem before going to the real deal.
