@@ -19,9 +19,9 @@ Download NodeJS according to the OS you are using, in this case the Windows Inst
 
 	Link: https://nodejs.org/en/download/
 
-Once nodeJS is downloaded we can verify the version installed along with NPM.
+Once nodeJS is downloaded verify the version installed along with NPM.
 
-Type the following command on a windows command line:
+Type the following command on a windows command-line:
 
 >node –-version
 	v8.9.0
@@ -29,18 +29,18 @@ Type the following command on a windows command line:
 >npm --version
 	V5.5.1
 
-The output should return the version installed in your computer. If the version is not shown in the command-line windows, then the installation went wrong. Go back and reinstall.
+The output should return the version installed in the computer. If the version is not shown in the command-line windows, then the installation went wrong. Go back and reinstall.
 
 
 ## Setting up Truffle and Ganache
 
-Now that we have installed NodeJS we are going to install Truffle and Ganache.
+Once NodeJS is installed the next step is to install Truffle and Ganache.
 Type the following command on a windows command-line:
 
 >npm install -g truffle
 	C:\Users\User Name\AppData\Roaming\npm
 
-The output will be a path to the installation directory and we can verify the version, but we have set the path to the previous output to successfully verify the version of truffle.
+The output will be a path to the installation directory, before verifying the version set the path to the previous output in the command-line to successfully verify the version that was installed.
 Type the following command on a windows command-line:
 
 >C:\Users\User Name\AppData\Roaming\npm>Truffle version
@@ -48,9 +48,10 @@ Type the following command on a windows command-line:
 	Truffle v4.1.13 (core: 4.1.13)
 	Solidity v0.4.24 (solc-js)
 
-We now see Truffle version and additionally we are shown solidity compiler version as well, it was also installed along with Truffle.
+The output is Truffle version and additionally we are shown solidity compiler version as well, it was also installed along with Truffle.
 
 Now it’s time to install Ganache Client!
+
 We have the option to install the graphical version, but we are going to work with the command-line version formerly known as TestRPC.
 Type the following command on a windows command line:
 
@@ -64,17 +65,17 @@ If you want to try out the GUI version download here:
 
 ## Truffle Environment overview and settings
 
-Up to this point we have done all the installations needed on our computer to compile and deploy our smart contract. Now we are going initialize our truffle environment where our smart contract will be placed.
+Up to this point all the installations needed on our computer to compile and deploy our smart contract are done. Now, it's time to initialize truffle environment where the smart contract will be placed.
 
-Before getting started we are going to back up for a sec. Let’s set up our environment variables so we can execute our commands from any directory. 
+Before getting started we are going to back up for a second to set up the environment variables so we can execute our commands from any directory. 
 
-Go to your environment variable options:
+Go to the environment variable options:
 
 	Click Environment Variable button
 	Under user variables select “Path” a new options window will pop-up
 	Click add and place the path where truffle and ganache were installed, in our case: C:\Users\User Name\AppData\Roaming\npm
 
-Once this is done, we can now set up our truffle environment. Create a new directory where you want to set up your environment, in my case I created a directory as follows: 
+Once this is done, set up the truffle environment. Create a new directory where you want to set up your environment, in my case I created a directory as follows: 
 
 >C:\Blockchain\Truffle_Env
 
@@ -112,8 +113,8 @@ It should look something like this:
 	  }
 	};
 
-As you can see we have set up our file pointing to our Ethereum Client Ganache which will listen on localhost (127.0.0.1) port 8545.
-Our environment and settings are now ready. It’s time to learn about solidity and code our first smart contract.
+As you can see we have configured our file pointing to the Ethereum Ganache Client which will listen on localhost (127.0.0.1) port 8545.
+The environment and settings are now ready. It’s time to learn about solidity and code our first smart contract.
 
 
 ## Solidity Principles
@@ -196,7 +197,7 @@ You may encounter compilation problems, work around them. The most common can be
 
 Before
 
-     function nameofcontract() { owner = msg.sender; }
+	function nameofcontract() { owner = msg.sender; }
 
 After
 
@@ -204,32 +205,32 @@ After
 
 So, just watch out on what version you are compiling on.
 
-The last line on the output from our compiling command, is telling it wrote something on that directory, which happens to be our compiled contracts. Congrats, you have compiled your contract!
+The last line on the output from the compiling command, indicates it wrote something on that directory, which happens to be the compiled contracts. Congrats, you have compiled your contract!
 
-The compiled contracts are in the folder .\build\contracts, we are not going to touch on that this time, that will be for another time. All we must know is that this directory is where our contracts will be put in after being compiled therefore, a lot of information can be bound here. If your contract is inside this directory it means you are in the right path.
+The compiled contracts are in the folder .\build\contracts, we are not going to touch on that this time, that will be for another time. All we must know is that this directory is where our contracts will be put in after being compiled therefore, a lot of information can be bound here. If your contract is inside this directory it means you are in the right path so far.
 
-It’s time to get our contract deployed so let’s get on that. Well, the first thing is obviously to get our blockchain up and running. To do that, we are going to type the following command on a new command-line:
+It’s time to get the contract deployed so let’s get on that. The first thing is obviously to get our blockchain up and running. To do that, type the following command on a new command-line:
 
 >ganache-cli
 
-You should get 10 accounts about 100eth each and its respective private keys. At this point, we assume you are familiar with the concepts of accounts, private keys, ether, wallets, etc. But what about Gas Price and Gas Limit. As we know, to be able to write into the Ethereum blockchain we must pay a transaction fee, this fee is what we call Gas which is a unit of measure for computational power. The gas price is how much eth we are willing to pay for each gas unit. The gas limit is how much gas we are willing to spend for a specific transaction.  
+You should get 10 accounts about 100eth each and the respective private keys. At this point, we assume you are familiar with the concepts of accounts, private keys, ether, wallets, etc. But what about Gas Price and Gas Limit. As we know, to be able to write into the Ethereum blockchain we must pay a transaction fee, this fee is what we call Gas which is a unit of measure for computational power. The gas price is how much eth we are willing to pay for each gas unit. The gas limit is how much gas we are willing to spend for a specific transaction.  
 
-Now that we know the very basics of gas and how we can use it to get our transactions into the blockchain, let’s see this in real life. After executing the previous command our client should be up and running on localhost port 8545. Ganache automatically will set our Gas Price and Gas Limit. When deploying to a main net set these values wisely and remember that if you don´t give enough gas to a transaction, it can end up not executing correctly meaning it will be drop along the way. With that said, we should have at least two command-line windows open. The first is where our environment is located and the second is our ganache client running on port 8545.
+Now that we know the very basics of gas and how to use it to get our transactions into the blockchain, let’s see this in real life. After executing the previous command the client should be up and running on localhost port 8545. Ganache automatically will set the Gas Price and Gas Limit. When deploying to a main net set these values wisely and remember that if you don´t give enough gas to a transaction, it can end up not executing correctly meaning it will be drop along the way. With that said, we should have at least two command-line windows open. The first is where the environment is located and the second is the ganache client running on port 8545.
 
-We are ready to deploy our contract into our local blockchain, Truffle will make it a bit easier since we don’t have to use Migrations where we would have to set up a few more things and run a different migration command. Instead, we are going to do this by interacting directly with our blockchain. To do this, run the following command in your environment directory:
+We are ready to deploy our contract into the local blockchain, Truffle will make it a bit easier since we don’t have to use Migrations where we would have to set up a few more things and run a different migrations command. Instead, we are going to do this by interacting directly with our blockchain. To do this, run the following command in your environment directory:
 
 >C:\Blockchain\Truffle_Env>truffle console --network ganache
 
-This command should provide a console. We are now inside and can interact with the blockchain. Notice, in the other command-line windows we should get some output from the commands executed in the blockchain. To deploy our contract, we need two things:
+This command should provide a console. This will put us inside and allow us to interact with the blockchain. Notice, in the other command-line windows we should get some output from the commands executed in the blockchain. To deploy the contract, we need two things:
 
 	1. An Account
 	2. Gas (Ether)
 
-Ganache already provided us with the two. Type the following command in the truffle command-line:
+Ganache already provided the two for us. Type the following command in the truffle command-line:
 
 >truffle(ganache)> web3.personal.listAccounts
 
-This command will give us a list of Addresses available, in the main net or test net we will have to set our account to be able to deploy the contract through migration. Ganache and Truffle will do this automatically for us. So finally, lets deploy the contract by typing the following commands on the truffle command-line:
+This command will output a list of addresses available, in the main net or test net we will have to set our account to be able to deploy the contract through a migration. Ganache and Truffle will do this automatically for us. So finally, to deploy the contract type the following command on the truffle command-line:
 
 >truffle(ganache)> web3.eth.accounts[0]
 
@@ -250,22 +251,22 @@ The transaction hash is the resulting hash from the transaction done when we dep
 
 ## Interacting with Ethereum Network Via Web3 Api
 
-As you saw earlier we were able get some information using the Api web3. This API is a set of libraries exposing different modules which allow you to interact with an Ethereum node locally or remotely using HTTP or IPC connection.
+As you saw earlier, we were able get some information using the Api web3. This API is a set of libraries exposing different modules which allow you to interact with an Ethereum node locally or remotely using HTTP or IPC connection.
 
 While still on the console we can make use of the Api to interact with the blockchain, now let’s execute the function exposed by the contract we deployed, if you recall our contract Greeter has a function greet that returns a string, this string value was set to “Hello World From Ganache!” in the contract we deployed since the constructor set this value to the variable greeting.
 
-Now let’s call the function greet and we can do this since we declared it public. Type the following command:
+Call the function greet and you can do this since we declared it public. Type the following command:
 
 >truffle(ganache)> Greeter.at("0x3699a1e9b9811d48c26d511a8e802a3f39fc4088").greet()
 
-The address placed inside the at method is the address of the contract we deployed earlier, so make sure you change it with the address of your own contract. 
+The address placed inside the "at" method is the address of the contract we deployed earlier, so make sure you change it with the address of your own contract.
 
 Once you execute the command, you should see the message “Hello World from Ganache!” in the command-line.
 Now it’s time to experiment with web3, type the following command:
 
 >truffle(ganache)>web3
 
-As you can see the output is a whole list of methods and modules available. Some are to display information of your account, set gas price, gas limit and many other things.
+The output is a whole list of methods and modules available. Some are to display information of the account, set gas price, gas limit and many other things.
 
 You can do some interesting stuff with web3 api, we are not going to go too much in depth in this article, but I will leave a reference where you can view valuable information. The link below will take you to the documentation where you can start experimenting with all the functionality available.
 
@@ -274,4 +275,4 @@ You can do some interesting stuff with web3 api, we are not going to go too much
 
 ## Conclusion
 
-We were able to set up an environment and run a local blockchain through Truffle and Ganache. We also went over the basics of Solidity reviewing a smart contract anatomy, we compiled and deployed a contract on our Ethereum Ganache client node. With the Web3 Api we interacted with the blockchain, using commands like truffle console we also consumed the contract we deployed and executed a public method. As you can see it’s quite easy to implement a smart contract and test it with these tools available. Instead of having to synchronize a full node with a test net or a main net this can be a quick way to set yourself up and experiment with the blockchain ecosystem before going to the real deal.
+We were able to set up an environment and run a local blockchain through Truffle and Ganache. We also went over the basics of Solidity reviewing a smart contract's anatomy, we compiled and deployed a contract on our Ethereum Ganache client node. With the Web3 Api we interacted with the blockchain, using commands like truffle console we also consumed the contract we deployed and executed a public method. It’s quite easy to implement a smart contract and test it with these tools available, instead of having to synchronize a full node for a test net or a main net this can be a quick way to set yourself up and experiment with the blockchain ecosystem before getting to the real deal.
