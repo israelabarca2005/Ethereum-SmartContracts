@@ -273,6 +273,6 @@ You can do some interesting stuff with web3 api, we are not going to go too much
 	https://web3js.readthedocs.io/en/1.0/
 
 
-## Conclusion
+## Conclution
 
 We were able to set up an environment and run a local blockchain through Truffle and Ganache. We also went over the basics of Solidity reviewing a smart contract's anatomy, we compiled and deployed a contract on our Ethereum Ganache client node. With the Web3 Api we interacted with the blockchain, using commands like truffle console we also consumed the contract we deployed and executed a public method. It’s quite easy to implement a smart contract and test it with these tools available, instead of having to synchronize a full node for a test net or a main net this can be a quick way to set yourself up and experiment with the blockchain ecosystem before getting to the real deal.
